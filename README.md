@@ -4,7 +4,7 @@ A minimalist desktop utility that splits any image into six 320x320 PNG tiles op
 
 Unlike manual image cropping tools, this utility automatically resizes, center-crops, and slices your image into exactly 6 parts, exporting them with optimized names (`1.png` to `6.png`) to ensure the shortest possible character length in your Discord bio.
 
-[![Discord Banner Emoji Splitter Demo](https://github.com/user-attachments/assets/1f818b4b-b4a1-4b7c-a514-83cd8c9a29e1)](https://youtu.be/_gRKmXKPrsU)
+[![Discord Banner Emoji Splitter Demo](https://github.com/user-attachments/assets/8ac7d125-66cd-4238-a357-d07a306ca032)](https://youtu.be/Lc59zoeqCGc)
 
 ---
 
