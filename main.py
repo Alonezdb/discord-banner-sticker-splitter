@@ -22,7 +22,7 @@ else:
 class App(BaseApp):
     def __init__(self):
         super().__init__()
-        self.title("Banner Sticker Splitter")
+        self.title("Banner Emoji Splitter")
         self.geometry("840x660")
         self.resizable(False, False)
         
@@ -58,10 +58,10 @@ class App(BaseApp):
         header_frame.grid(row=0, column=0, sticky="ew", padx=20, pady=(20, 10))
         header_frame.grid_columnconfigure(0, weight=1)
 
-        title_label = ctk.CTkLabel(header_frame, text="Banner Sticker Splitter", font=ctk.CTkFont(size=24, weight="bold"))
+        title_label = ctk.CTkLabel(header_frame, text="Banner Emoji Splitter", font=ctk.CTkFont(size=24, weight="bold"))
         title_label.grid(row=0, column=0, sticky="w")
 
-        subtitle_label = ctk.CTkLabel(header_frame, text="Select or drop a 960x640 banner image to split it into six 320x320 tiles for Discord.", font=ctk.CTkFont(size=13), text_color="#a1a1aa")
+        subtitle_label = ctk.CTkLabel(header_frame, text="Select or drop a 960x640 banner image to split it into six 320x320 emojis for Discord.", font=ctk.CTkFont(size=13), text_color="#a1a1aa")
         subtitle_label.grid(row=1, column=0, sticky="w", pady=(2, 0))
 
         drop_msg = "Drag & drop your banner image here, or click to browse" if self.dnd_active else "Click here to select a banner image"
@@ -105,7 +105,7 @@ class App(BaseApp):
         footer_frame.grid(row=3, column=0, sticky="ew", padx=20, pady=(10, 20))
         footer_frame.grid_columnconfigure(0, weight=1)
 
-        self.export_btn = ctk.CTkButton(footer_frame, text="Export Stickers", fg_color="#2563eb", hover_color="#1d4ed8", font=ctk.CTkFont(weight="bold", size=15), height=44, state="disabled", command=self._export_stickers)
+        self.export_btn = ctk.CTkButton(footer_frame, text="Export Emojis", fg_color="#2563eb", hover_color="#1d4ed8", font=ctk.CTkFont(weight="bold", size=15), height=44, state="disabled", command=self._export_emojis)
         self.export_btn.grid(row=0, column=0, pady=5)
 
     def _select_image_dialog(self):
@@ -173,7 +173,7 @@ class App(BaseApp):
         except Exception as e:
             messagebox.showerror("Error", f"Could not load image:\n{str(e)}")
 
-    def _export_stickers(self):
+    def _export_emojis(self):
         if not self.tiles:
             return
             
@@ -187,7 +187,7 @@ class App(BaseApp):
                 filepath = os.path.join(output_dir, filename)
                 tile.save(filepath, format="PNG")
                 
-            messagebox.showinfo("Export Successful", f"Successfully exported 6 stickers to:\n{output_dir}")
+            messagebox.showinfo("Export Successful", f"Successfully exported 6 emojis to:\n{output_dir}")
             
             try:
                 os.startfile(output_dir)
@@ -195,7 +195,7 @@ class App(BaseApp):
                 subprocess.Popen(['explorer', os.path.normpath(output_dir)])
                 
         except Exception as e:
-            messagebox.showerror("Error", f"Failed to save stickers:\n{str(e)}")
+            messagebox.showerror("Error", f"Failed to save emojis:\n{str(e)}")
 
 if __name__ == "__main__":
     app = App()
